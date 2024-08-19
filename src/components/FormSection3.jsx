@@ -2,44 +2,11 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
+import { opPagoAsociado, opTipoMoneda, opTipoUsuario, opSegmentoUsuarios, opDisponibilidad, opRSH } from '../utils/options'
 
 const FormSection3 = () => {
 
-    const opPagoAsociado = [
-        { label: "Si", value: "Si" },
-        { label: "No", value: "No" },
-        { label: "En algunos casos", value: "En algunos casos" },
-    ]
-    const opTipoMoneda = [
-        { label: "Peso Chileno (CLP)", value: "Peso Chileno (CLP)" },
-        { label: "Unidad de Fomento (UF)", value: "Unidad de Fomento (UF)" },
-        { label: "Unidad Tributaria Mensual (UTM)", value: "Unidad Tributaria Mensual (UTM)" },
-    ]
-    const opTipoUsuario = [
-        { label: "Persona Natural", value: "Persona Natural" },
-        { label: "Persona Jurídica", value: "Persona Jurídica" },
-        { label: "Ambos tipos de personas", value: "Ambos tipos de personas" },
-    ]
-    const opSegmentoUsuarios = [
-        { label: "Género", value: "Género" },
-        { label: "Productividad y emprendimiento", value: "Productividad y emprendimiento" },
-        { label: "Calidad Indígena", value: "Calidad Indígena" },
-        { label: "Discapacidad", value: "Discapacidad" },
-        { label: "Medio Ambiente", value: "Medio Ambiente" },
-        { label: "Migración", value: "Migración" },
-        { label: "Personas Mayores", value: "Personas Mayores" },
-        { label: "Infancia", value: "Infancia" },
-        { label: "No aplica", value: "No aplica" },
-    ]
-    const opRSH = [
-        { label: "Si, se interopera con el Munisterio de Desarrollo Social y Familia", value: "Si, se interopera con el Munisterio de Desarrollo Social y Familia" },
-        { label: "Si, se solicita a los(as) usuarios(as)", value: "Si, se solicita a los(as) usuarios(as)" },
-        { label: "No se requiere información", value: "No se requiere información" },
-    ]
-    const opDisponibilidad = [
-        { label: "Se puede realizar durante todo el año", value: "Se puede realizar durante todo el año" },
-        { label: "Se puede realizar sólo en algunos períodos del año", value: "Se puede realizar sólo en algunos períodos del año" },
-    ]
+
 
     return (
         <>

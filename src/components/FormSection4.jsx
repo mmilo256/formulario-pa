@@ -3,32 +3,28 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
+import { opAccesoExp, opAlcance, opFicha, opNivelDig, opTipoExpediente } from '../utils/options'
 
 const FormSection4 = () => {
 
+    // Checkboxes canales de atención
     const [canalesAtencionCheckbox1, setCanalesAtencionCheckbox1] = useState(false)
     const [canalesAtencionCheckbox2, setCanalesAtencionCheckbox2] = useState(false)
     const [canalesAtencionCheckbox3, setCanalesAtencionCheckbox3] = useState(false)
     const [canalesAtencionCheckbox4, setCanalesAtencionCheckbox4] = useState(false)
 
+    // Checkboxes canales transaccionales
     const [canalesTransCheckbox1, setCanalesTransCheckbox1] = useState(false)
     const [canalesTransCheckbox2, setCanalesTransCheckbox2] = useState(false)
     const [canalesTransCheckbox3, setCanalesTransCheckbox3] = useState(false)
     const [canalesTransCheckbox4, setCanalesTransCheckbox4] = useState(false)
 
+    // Checkboxes plataformas de digitalización
     const [plataformasCheckbox1, setPlataformasCheckbox1] = useState(false)
     const [plataformasCheckbox2, setPlataformasCheckbox2] = useState(false)
     const [plataformasCheckbox3, setPlataformasCheckbox3] = useState(false)
     const [plataformasCheckbox4, setPlataformasCheckbox4] = useState(false)
 
-    const opNivelDig = [
-        { label: "Nivel 0", value: "Nivel 0" },
-        { label: "Nivel 1", value: "Nivel 1" },
-        { label: "Nivel 2", value: "Nivel 2" },
-        { label: "Nivel 3", value: "Nivel 3" },
-        { label: "Nivel 4 (Sólo aplica para PA de función específica y otras tramitaciones)", value: "Nivel 4 (Sólo aplica para PA de función específica y otras tramitaciones)" },
-        { label: "Nivel 5", value: "Nivel 5" },
-    ]
 
     const opCanalesAtencion = [
         { checked: canalesAtencionCheckbox1, label: 'Canal Digital', onChange: setCanalesAtencionCheckbox1 },
@@ -44,24 +40,7 @@ const FormSection4 = () => {
         { checked: canalesTransCheckbox4, label: 'Módulos de autoatención', onChange: setCanalesTransCheckbox4 },
     ];
 
-    const opTipoExpediente = [
-        { label: "Expediente físico", value: "Expediente físico" },
-        { label: "Expediente electrónico", value: "Expediente electrónico" },
-        { label: "Expediente físico y electrónico", value: "Expediente físico y electrónico" },
-        { label: "No genera un expediente", value: "No genera un expediente" },
-    ]
-    const opAccesoExp = [
-        { label: "Si, los(as) interesados(as) tienen acceso al expediente electrónico", value: "Si, los(as) interesados(as) tienen acceso al expediente electrónico" },
-        { label: "No, los(as) interesados(as) no tienen acceso al expediente", value: "No, los(as) interesados(as) no tienen acceso al expediente" },
-    ]
-    const opFicha = [
-        { label: "Si", value: "Si" },
-        { label: "No", value: "No" },
-    ]
-    const opAlcance = [
-        { label: "Las plataformas electrónicas soportan todas las etapas de tramitación del procedimiento administrativo u otra tramitación", value: "Las plataformas electrónicas soportan todas las etapas de tramitación del procedimiento administrativo u otra tramitación" },
-        { label: "Las plataformas electrónicas soportan parcialmente las etapas de tramitación del procedimiento administrativo u otra tramitación", value: "Las plataformas electrónicas soportan parcialmente las etapas de tramitación del procedimiento administrativo u otra tramitación" },
-    ]
+
     const opPlataformas = [
         { checked: plataformasCheckbox1, label: 'SIMPLE con modalidad SaaS (como servicio dispuesto por DGD)', onChange: setPlataformasCheckbox1 },
         { checked: plataformasCheckbox2, label: 'SIMPLE con modalidad On Premise (instalación local o servidores propios)', onChange: setPlataformasCheckbox2 },

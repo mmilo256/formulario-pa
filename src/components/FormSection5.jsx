@@ -2,26 +2,9 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
+import { opAuthUsuarios, opAuthFuncionarios, opFirmaElec } from '../utils/options'
 
 const FormSection5 = () => {
-
-    const opAuthUsuarios = [
-        { label: "No utiliza mecanismo de autenticación digital", value: "No utiliza mecanismo de autenticación digital" },
-        { label: "Utiliza ClaveÚnica", value: "Utiliza ClaveÚnica" },
-        { label: "Utiliza Clave Tributaria", value: "Utiliza Clave Tributaria" },
-        { label: "Utiliza un mecanismo de autenticación propio", value: "Utiliza un mecanismo de autenticación propio" },
-    ]
-    const opAuthFuncionarios = [
-        { label: "No utiliza mecanismo de autenticación digital", value: "No utiliza mecanismo de autenticación digital" },
-        { label: "Utiliza ClaveÚnica", value: "Utiliza ClaveÚnica" },
-        { label: "Utiliza un mecanismo de autenticación propio", value: "Utiliza un mecanismo de autenticación propio" },
-    ]
-    const opFirmaElec = [
-        { label: "No utiliza", value: "No utiliza" },
-        { label: "Utiliza Firma Electrónica Avanzada del Estado (Firma Gob)", value: "Utiliza Firma Electrónica Avanzada del Estado (Firma Gob)" },
-        { label: "Utiliza firma electrónica avanzada provista por un externo", value: "Utiliza firma electrónica avanzada provista por un externo" },
-        { label: "Utiliza ambos tipos de firma (Firma Gob y provista por un externo)", value: "Utiliza ambos tipos de firma (Firma Gob y provista por un externo)" }
-    ]
 
     return (
         <>
