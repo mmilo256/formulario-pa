@@ -3,7 +3,7 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
-import { opTiposNotif, opSiNo, opTiposNotifInstit } from '../utils/options'
+import { opTiposNotif, opSiNo, opTiposNotifInstit } from '../data/options'
 
 const FormSection6 = () => {
 

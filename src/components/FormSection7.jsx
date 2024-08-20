@@ -1,4 +1,4 @@
-import { opMedioCom, opMedioInterop, opMediosEstado, opSiNo } from '../utils/options'
+import { opMedioCom, opMedioInterop, opMediosEstado, opSiNo } from '../data/options'
 import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'

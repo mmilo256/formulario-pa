@@ -2,7 +2,7 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
-import { opAuthUsuarios, opAuthFuncionarios, opFirmaElec } from '../utils/options'
+import { opAuthUsuarios, opAuthFuncionarios, opFirmaElec } from '../data/options'
 
 const FormSection5 = () => {
 

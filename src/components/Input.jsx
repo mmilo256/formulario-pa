@@ -1,4 +1,6 @@
-const Input = ({ label, type, options, value, onChange }) => {
+import Modal from "./Modal";
+
+const Input = ({ label, type, options, value, onChange, modal, setModal, modalData, help }) => {
 
     let input;
     const inputStyles = "border w-full border-slate-400 py-1 px-2 text-sm rounded"
@@ -40,10 +42,17 @@ const Input = ({ label, type, options, value, onChange }) => {
     }
 
     return (
-        <label className="block">
-            <p className="text-xs mb-1">{label}</p>
-            {input}
-        </label>
+        <>
+            <label className="block">
+                <div className="text-xs mb-1">
+                    {help && <button onClick={() => setModal(true)} type="button" className="mr-1 h-4 w-4 rounded-full bg-blue-600 text-white">?</button>
+                    }
+                    <p className="inline">{label}</p>
+                </div>
+                {input}
+            </label>
+            <Modal modal={modal} setModal={setModal} modalData={modalData} />
+        </>
     )
 }
 

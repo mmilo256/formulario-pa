@@ -3,7 +3,7 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
-import { opAccesoExp, opAlcance, opFicha, opNivelDig, opTipoExpediente } from '../utils/options'
+import { opAccesoExp, opAlcance, opFicha, opNivelDig, opTipoExpediente } from '../data/options'
 
 const FormSection4 = () => {
 

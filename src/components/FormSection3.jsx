@@ -2,11 +2,13 @@ import BaseFormSection from './BaseFormSection'
 import Input from './Input'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
-import { opPagoAsociado, opTipoMoneda, opTipoUsuario, opSegmentoUsuarios, opDisponibilidad, opRSH } from '../utils/options'
+import { opPagoAsociado, opTipoMoneda, opTipoUsuario, opSegmentoUsuarios, opDisponibilidad, opRSH } from '../data/options'
+import { useState } from 'react'
+import { infoSegmentoUsuarios } from '../data/infoData'
 
 const FormSection3 = () => {
 
-
+    const [modal, setModal] = useState(false)
 
     return (
         <>
@@ -15,7 +17,7 @@ const FormSection3 = () => {
                 <Input type="select" options={opTipoMoneda} label="Tipo de moneda" />
                 <Input label="Monto a pagar" />
                 <Input type="select" options={opTipoUsuario} label="Tipo de usuario(a)" />
-                <Input type="select" options={opSegmentoUsuarios} label="Segmento de usuarios(as)" />
+                <Input help modal={modal} setModal={setModal} modalData={infoSegmentoUsuarios} type="select" options={opSegmentoUsuarios} label="Segmento de usuarios(as)" />
                 <Input type="select" options={opDisponibilidad} label="Disponibilidad para su realización" />
                 <Input type="select" options={opRSH} label="Relación con el Registro Social de Hogares y/o Registro de Información Social" />
             </BaseFormSection>
