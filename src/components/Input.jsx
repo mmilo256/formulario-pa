@@ -1,24 +1,36 @@
 import Modal from "./Modal";
 
-const Input = ({ label, type, options, value, onChange, modal, setModal, modalData, help }) => {
+const Input = ({
+    label,
+    type,
+    options,
+    value,
+    onChange,
+    modal,
+    setModal,
+    modalData,
+    help,
+    placeholder
+}) => {
 
     let input;
-    const inputStyles = "border w-full border-slate-400 py-1 px-2 text-sm rounded"
+    const inputStyles = "border w-full border-slate-400 py-1 px-2 text-sm rounded outline-blue-400"
 
     switch (type) {
         case "text":
-            input = <textarea value={value} onChange={onChange} className={inputStyles} />
+            input = <textarea placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={`h-28 ${inputStyles}`} />
             break;
 
         case "select":
-            input = <select value={value} onChange={onChange} className={inputStyles}>
+            input = <select value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles}>
+                <option disabled value="">Seleccione una opción</option>
                 {options.map((option => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                 )))}
             </select>
             break;
         case "date":
-            input = <input type="date" value={value} onChange={onChange} className={inputStyles} />
+            input = <input type="date" value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles} />
             break;
         case "multiple":
             input =
@@ -37,7 +49,7 @@ const Input = ({ label, type, options, value, onChange, modal, setModal, modalDa
 
             break;
         default:
-            input = <input value={value} onChange={onChange} className={inputStyles} type="text" />
+            input = <input placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles} type="text" />
             break;
     }
 
