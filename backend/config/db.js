@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
 import { Sequelize } from "sequelize"
+import 'dotenv/config'
 
 const db = {
-    name: "form_pa",
-    host: "localhost",
-    pass: "",
-    user: "root"
+    name: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    pass: process.env.DB_PASS,
+    user: process.env.DB_USER
 }
 
 const sequelize = new Sequelize(db.name, db.user, db.pass, {
