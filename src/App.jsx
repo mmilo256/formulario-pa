@@ -12,6 +12,7 @@ import FormSection6 from "./components/FormSection6"
 import FormSection7 from "./components/FormSection7"
 import Home from "./components/Home"
 import ConfirmForm from "./components/ConfirmForm"
+import Results from "./components/receivedForms/Results"
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="notificaciones" element={<FormSection6 />} />
             <Route path="datos-documentos" element={<FormSection7 />} />
             <Route path="confirmar" element={<ConfirmForm />} />
+            <Route path="respuestas" element={<Results />} />
           </Routes>
         </Form>
       </div>

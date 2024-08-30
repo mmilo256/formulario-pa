@@ -19,6 +19,85 @@ const ConfirmForm = () => {
     const data6 = useFormStore(state => state.section6)
     const data7 = useFormStore(state => state.section7)
 
+    const submitForm = async () => {
+        const formData = {
+            nombrePA: data1.nombrePA,
+            tipoRegistro: data1.tipoRegistro,
+            descripcion: data1.descripcion,
+            areaResponsable: data1.areaResponsable,
+            cargoResponsable: data1.cargoResponsable,
+            tipoInicio: data1.tipoInicio,
+            actoInicio: data1.actoInicio,
+            actoTermino: data1.actoTermino,
+            prodInstitucional: data1.prodInstitucional,
+            numLey: data2.numLey,
+            urlLey: data2.urlLey,
+            fuentesNorm: data2.fuentesNorm,
+            tipoFuente: data2.tipoFuente,
+            nombreFuente: data2.nombreFuente,
+            urlFuente: data2.urlFuente,
+            pago: data3.pago,
+            tipoMoneda: data3.tipoMoneda,
+            monto: data3.monto,
+            tipoUsuario: data3.tipoUsuario,
+            segmentoUsuarios: data3.segmentoUsuarios,
+            disponibilidad: data3.disponibilidad,
+            rsh: data3.rsh,
+            nivelDig: data4.nivelDig,
+            fechaDig: data4.fechaDig,
+            tipoExp: data4.tipoExp,
+            accesoExp: data4.accesoExp,
+            urlInicio: data4.urlInicio,
+            chileAtiende: data4.chileAtiende,
+            urlChileAtiende: data4.urlChileAtiende,
+            numPlataformas: data4.numPlataformas,
+            alcancePlataformas: data4.alcancePlataformas,
+            canalAtencionDigital: data4.canalesAtencion.digital,
+            canalAtencionPresencial: data4.canalesAtencion.presencial,
+            canalAtencionTelefonico: data4.canalesAtencion.telefonico,
+            canalAtencionAuto: data4.canalesAtencion.autoatencion,
+            canalTransDigital: data4.canalesTransaccionales.digital,
+            canalTransPresencial: data4.canalesTransaccionales.presencial,
+            canalTransTelefonico: data4.canalesTransaccionales.telefonico,
+            canalTransAuto: data4.canalesTransaccionales.autoatencion,
+            platSimpleSaas: data4.plataformas.simple_saas,
+            platSimpleOnPremise: data4.plataformas.simple_onPremise,
+            platPropio: data4.plataformas.desarrollo_propio,
+            platEstado: data4.plataformas.plataformas_estado,
+            autenticacionUsuario: data5.autenticacionUsuario,
+            autenticacionFuncionario: data5.autenticacionFuncionario,
+            firmaElec: data5.firmaElec,
+            notificaciones: data6.notificaciones,
+            notifInicio: data6.notifInicio,
+            notifInstruc: data6.notifInstruc,
+            notifTermino: data6.notifTermino,
+            comInstitucionales: data6.comInstitucionales,
+            comPersonales: data6.comPersonales,
+            etapaNotifInicio: data6.etapasNotif.inicio,
+            etapaNotifInstruc: data6.etapasNotif.instruccion,
+            etapaNotifTermino: data6.etapasNotif.termino,
+            docsOrganos: data7.docsOrganos,
+            mediosOrganos: data7.mediosOrganos,
+            InstitucionProveedora: data7.institucionProveedora,
+            medioInterop: data7.medioInterop,
+            servicioWeb: data7.servicioWeb,
+            docNotarial: data7.docNotarial,
+            nombreDocNotarial: data7.nombreDocNotarial,
+            medioComOficial: data7.medioComOficial,
+        }
+        try {
+            await fetch("http://localhost:3000/api", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const handleSubmit = async () => {
         const data = {
             name: data1.nombrePA,
@@ -27,6 +106,7 @@ const ConfirmForm = () => {
             person: data1.cargoResponsable
         }
         alert("Enviado!")
+        await submitForm()
         if (!localStorage.getItem('procedures')) {
             localStorage.setItem('procedures', JSON.stringify([data]))
             addProcedure(data)

@@ -63,7 +63,7 @@ const FormSection2 = () => {
     return (
         <>
             <BaseFormSection className="grid grid-cols-2" sectionName="2. Marco Normativo">
-                <Input placeholder="Ej: 20927" help modal={modalLey} setModal={setModalLey} modalData={infoNumLey} value={numLey} onChange={setNumLey} label="N° de Ley" />
+                <Input type="number" placeholder="Ej: 20927" help modal={modalLey} setModal={setModalLey} modalData={infoNumLey} value={numLey} onChange={setNumLey} label="N° de Ley" />
                 <Input value={urlLey} onChange={setUrlLey} label={<span>URL de la Ley en Ley Chile <a target='_blank' className='text-blue-600' href='https://www.bcn.cl/leychile/'>(Ir a Ley Chile)</a></span>} />
                 <Input value={fuentesNorm} onChange={setFuentesNorm} type="select" options={opSiNo} label="Otras fuentes normativas" />
                 {fuentesNorm === "Si" && <Input value={tipoFuente} onChange={setTipoFuente} type="select" options={fuentesNormativas} label="Tipo de fuente normativa" />}

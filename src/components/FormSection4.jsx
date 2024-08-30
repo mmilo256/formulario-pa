@@ -147,7 +147,7 @@ const FormSection4 = () => {
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={urlInicio} onChange={setUrlInicio} label="URL de inicio" />}
                 <Input value={chileAtiende} onChange={setChileAtiende} type="select" options={opFicha} label="Ficha en ChileAtiende" />
                 {chileAtiende === "Si" && <Input value={urlChileAtiende} onChange={setUrlChileAtiende} label="Enlace a ficha en ChileAtiende" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={numPlataformas} onChange={setNumPlataformas} label="Número de plataformas electrónicas" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input type="number" value={numPlataformas} onChange={setNumPlataformas} label="Número de plataformas electrónicas" />}
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={alcancePlataformas} onChange={setAlcancePlataformas} type="select" options={opAlcance} label="Alcance de las plataformas electrónicas" />}
                 <div className="col-span-2">
                     {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input type="multiple" options={opPlataformas} label="Plataforma o sistema utilizado para la digitalización" />}

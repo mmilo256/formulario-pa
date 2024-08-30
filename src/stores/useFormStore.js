@@ -33,7 +33,7 @@ const useFormStore = create((set) => ({
         nivelDig: "",
         fechaDig: "",
         tipoExp: "",
-        accesoExp: "", value: "",
+        accesoExp: "",
         urlInicio: "",
         chileAtiende: "",
         urlChileAtiende: "",

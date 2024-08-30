@@ -49,7 +49,7 @@ const Input = ({
 
             break;
         default:
-            input = <input placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles} type="text" />
+            input = <input placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles} type={type} />
             break;
     }
 

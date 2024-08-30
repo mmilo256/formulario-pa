@@ -64,7 +64,7 @@ const FormSection3 = () => {
             <BaseFormSection className="grid grid-cols-2" sectionName="3. Usuarios(as)">
                 <Input value={pago} onChange={setPago} type="select" options={opPagoAsociado} label="Pago asociado" />
                 {pago !== "No" && pago !== "" && <Input value={tipoMoneda} onChange={setTipoMoneda} type="select" options={opTipoMoneda} label="Tipo de moneda" />}
-                {pago !== "No" && pago !== "" && <Input value={monto} onChange={setMonto} label="Monto a pagar" />}
+                {pago !== "No" && pago !== "" && <Input type="number" value={monto} onChange={setMonto} label="Monto a pagar" />}
                 <Input value={tipoUsuario} onChange={setTipoUsuario} type="select" options={opTipoUsuario} label="Tipo de usuario(a)" />
                 <Input value={segmentoUsuarios} onChange={setSegmentoUsuarios} help modal={modal} setModal={setModal} modalData={infoSegmentoUsuarios} type="select" options={opSegmentoUsuarios} label="Segmento de usuarios(as)" />
                 <Input value={disponibilidad} onChange={setDisponibilidad} type="select" options={opDisponibilidad} label="Disponibilidad para su realización" />
