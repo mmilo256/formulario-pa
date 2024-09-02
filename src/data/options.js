@@ -92,7 +92,7 @@ export const opSegmentoUsuarios = [
     { label: "No aplica", value: "No aplica" },
 ]
 export const opRSH = [
-    { label: "Si, se interopera con el Munisterio de Desarrollo Social y Familia", value: "Si, se interopera con el Munisterio de Desarrollo Social y Familia" },
+    { label: "Si, se interopera con el Ministerio de Desarrollo Social y Familia", value: "Si, se interopera con el Ministerio de Desarrollo Social y Familia" },
     { label: "Si, se solicita a los(as) usuarios(as)", value: "Si, se solicita a los(as) usuarios(as)" },
     { label: "No se requiere información", value: "No se requiere información" },
 ]

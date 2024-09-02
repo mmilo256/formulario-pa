@@ -6,7 +6,7 @@ import SecondaryButton from './SecondaryButton'
 import { opAccesoExp, opAlcance, opFicha, opNivelDig, opTipoExpediente } from '../data/options'
 import { useNavigate } from 'react-router-dom'
 import useFormStore from '../stores/useFormStore'
-import { infoCanalesAtencion, infoCanalesTrans, infoNivelDig } from '../data/infoData'
+import { infoAccesoExp, infoAlcancePlataformas, infoCanalesAtencion, infoCanalesTrans, infoNivelDig, infoNumPlataformas, infoTipoExp, infoUrlInicio } from '../data/infoData'
 
 const FormSection4 = () => {
 
@@ -23,6 +23,11 @@ const FormSection4 = () => {
     const [nivelDigModal, setNivelDigModal] = useState(false)
     const [canalesAtencionModal, setCanalesAtencionModal] = useState(false)
     const [canalesTransModal, setCanalesTransModal] = useState(false)
+    const [tipoExpModal, setTipoExpModal] = useState(false)
+    const [accesoExpModal, setAccesoExpModal] = useState(false)
+    const [urlInicioModal, setUrlInicioModal] = useState(false)
+    const [numPlataformasModal, setNumPlataformasModal] = useState(false)
+    const [alcancePlataformasModal, setAlcancePlataformasModal] = useState(false)
 
     // CAMPOS
     const [nivelDig, setNivelDig] = useState(sectionData.nivelDig)
@@ -135,20 +140,20 @@ const FormSection4 = () => {
         <>
             <BaseFormSection className="grid gap-2 grid-cols-2" sectionName="4. Soporte Electrónico">
                 <Input help modal={nivelDigModal} setModal={setNivelDigModal} modalData={infoNivelDig} value={nivelDig} onChange={setNivelDig} type="select" options={opNivelDig} label="Nivel de digitalización" />
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={fechaDig} onChange={setFechaDig} type="date" label="Fecha de digitalización" />}
+                {nivelDig !== "" && nivelDig === "Nivel 5" && <Input value={fechaDig} onChange={setFechaDig} type="date" label="Fecha de digitalización" />}
                 <div className='col-span-2'>
                     <Input help modal={canalesAtencionModal} setModal={setCanalesAtencionModal} modalData={infoCanalesAtencion} type="multiple" options={opCanalesAtencion} label="Canales disponibles para la atención" />
                 </div>
                 <div className="col-span-2">
                     <Input help modal={canalesTransModal} setModal={setCanalesTransModal} modalData={infoCanalesTrans} type="multiple" options={opCanalesTrans} label="Canales transaccionales" />
                 </div>
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={tipoExp} onChange={setTipoExp} type="select" options={opTipoExpediente} label="Tipo de expediente" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={accesoExp} onChange={setAccesoExp} type="select" options={opAccesoExp} label="Acceso al expediente electrónico por parte de los interesados" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={urlInicio} onChange={setUrlInicio} label="URL de inicio" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={tipoExpModal} setModal={setTipoExpModal} modalData={infoTipoExp} value={tipoExp} onChange={setTipoExp} type="select" options={opTipoExpediente} label="Tipo de expediente" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={accesoExpModal} setModal={setAccesoExpModal} modalData={infoAccesoExp} value={accesoExp} onChange={setAccesoExp} type="select" options={opAccesoExp} label="Acceso al expediente electrónico por parte de los interesados" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={urlInicioModal} setModal={setUrlInicioModal} modalData={infoUrlInicio} value={urlInicio} onChange={setUrlInicio} label="URL de inicio" />}
                 <Input value={chileAtiende} onChange={setChileAtiende} type="select" options={opFicha} label="Ficha en ChileAtiende" />
                 {chileAtiende === "Si" && <Input value={urlChileAtiende} onChange={setUrlChileAtiende} label="Enlace a ficha en ChileAtiende" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input type="number" value={numPlataformas} onChange={setNumPlataformas} label="Número de plataformas electrónicas" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input value={alcancePlataformas} onChange={setAlcancePlataformas} type="select" options={opAlcance} label="Alcance de las plataformas electrónicas" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={numPlataformasModal} setModal={setNumPlataformasModal} modalData={infoNumPlataformas} numOnly maxLength={5} value={numPlataformas} onChange={setNumPlataformas} label="Número de plataformas electrónicas" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={alcancePlataformasModal} setModal={setAlcancePlataformasModal} modalData={infoAlcancePlataformas} value={alcancePlataformas} onChange={setAlcancePlataformas} type="select" options={opAlcance} label="Alcance de las plataformas electrónicas" />}
                 <div className="col-span-2">
                     {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input type="multiple" options={opPlataformas} label="Plataforma o sistema utilizado para la digitalización" />}
                 </div>

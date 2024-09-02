@@ -6,6 +6,7 @@ import { opAuthUsuarios, opAuthFuncionarios, opFirmaElec } from '../data/options
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useFormStore from '../stores/useFormStore'
+import { infoAuthFuncionario, infoAuthUsuario, infoFirmaElec } from '../data/infoData'
 
 const FormSection5 = () => {
 
@@ -20,6 +21,11 @@ const FormSection5 = () => {
     const [autenticacionUsuario, setAutenticacionUsuario] = useState(sectionData.autenticacionUsuario)
     const [autenticacionFuncionario, setAutenticacionFuncionario] = useState(sectionData.autenticacionFuncionario)
     const [firmaElec, setFirmaElec] = useState(sectionData.firmaElec)
+
+    // MODALES
+    const [authUsuarioModal, setAuthUsuarioModal] = useState(false)
+    const [authFuncionarioModal, setAuthFuncionarioModal] = useState(false)
+    const [firmaElecModal, setFirmaElecModal] = useState(false)
 
     const [isValid, setIsValid] = useState(false)
 
@@ -49,9 +55,9 @@ const FormSection5 = () => {
         <>
             <BaseFormSection className="grid grid-cols-2" sectionName="5. Identidad Digital">
                 {nivelDig === "Nivel 0" ? <p className='text-xl text-center col-span-2 py-4' >El nivel de digitalización es 0. Continúe con la siguiente sección</p> : <>
-                    <Input value={autenticacionUsuario} onChange={setAutenticacionUsuario} type="select" options={opAuthUsuarios} label="Mecanismo de autenticación digital para los usuarios" />
-                    <Input value={autenticacionFuncionario} onChange={setAutenticacionFuncionario} type="select" options={opAuthFuncionarios} label="Mecanismo de autenticación digital para los funcionarios" />
-                    <Input value={firmaElec} onChange={setFirmaElec} type="select" options={opFirmaElec} label="Firma electrónica avanzada" />
+                    <Input help modal={authUsuarioModal} setModal={setAuthUsuarioModal} modalData={infoAuthUsuario} value={autenticacionUsuario} onChange={setAutenticacionUsuario} type="select" options={opAuthUsuarios} label="Mecanismo de autenticación digital para los usuarios" />
+                    <Input help modal={authFuncionarioModal} setModal={setAuthFuncionarioModal} modalData={infoAuthFuncionario} value={autenticacionFuncionario} onChange={setAutenticacionFuncionario} type="select" options={opAuthFuncionarios} label="Mecanismo de autenticación digital para los funcionarios" />
+                    <Input help modal={firmaElecModal} setModal={setFirmaElecModal} modalData={infoFirmaElec} value={firmaElec} onChange={setFirmaElec} type="select" options={opFirmaElec} label="Firma electrónica avanzada" />
                 </>}
             </BaseFormSection>
             <div className='flex justify-end py-4 gap-4'>

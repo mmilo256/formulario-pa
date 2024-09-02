@@ -10,15 +10,23 @@ const Input = ({
     setModal,
     modalData,
     help,
-    placeholder
+    placeholder,
+    numOnly,
+    maxLength = 100
 }) => {
 
     let input;
     const inputStyles = "border w-full border-slate-400 py-1 px-2 text-sm rounded outline-blue-400"
 
+    const validateNumOnly = (val) => {
+        if (/^\d*$/.test(val)) {
+            onChange(val);
+        }
+    }
+
     switch (type) {
         case "text":
-            input = <textarea placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={`h-28 ${inputStyles}`} />
+            input = <textarea maxLength={350} placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={`h-28 ${inputStyles}`} />
             break;
 
         case "select":
@@ -49,7 +57,7 @@ const Input = ({
 
             break;
         default:
-            input = <input placeholder={placeholder} value={value} onChange={(e) => onChange(e.target.value)} className={inputStyles} type={type} />
+            input = <input maxLength={maxLength} placeholder={placeholder} value={value} onChange={numOnly ? (e) => { validateNumOnly(e.target.value) } : (e) => onChange(e.target.value)} className={inputStyles} type={type} />
             break;
     }
 
@@ -57,7 +65,7 @@ const Input = ({
         <>
             <label className="block">
                 <div className="text-xs mb-1">
-                    {help && <button onClick={() => setModal(true)} type="button" className="mr-1 h-4 w-4 rounded-full bg-blue-600 text-white">?</button>
+                    {help && <button tabIndex={-1} onClick={() => setModal(true)} type="button" className="mr-1 h-4 w-4 rounded-full bg-blue-600 text-white">?</button>
                     }
                     <p className="inline">{label}</p>
                 </div>

@@ -1,11 +1,11 @@
 const ResultsTable = ({ data }) => {
 
-    const headerStyle = "bg-slate-800 px-2 text-white font-normal min-w-40 border border-white"
-    const cellStyle = "border px-2 w-auto whitespace-nowrap"
+    const headerStyle = "bg-slate-800 px-2 text-xs text-white font-normal min-w-40 border border-white"
+    const cellStyle = "border px-2 w-64"
 
     return (
         <div onClick={() => { console.log(data) }} className="shadow rounded overflow-x-scroll">
-            <table className="text-left text-sm">
+            <table className="text-left text-xs">
                 <thead>
                     <tr>
                         <th className="bg-blue-700 text-white text-center" colSpan={9}>1. Identificación</th>
@@ -83,7 +83,7 @@ const ResultsTable = ({ data }) => {
                         <tr key={index}>
                             <td className={cellStyle}> {procedure.nombrePA} </td>
                             <td className={cellStyle}> {procedure.tipoRegistro} </td>
-                            <td className={cellStyle}> {procedure.descripcion} </td>
+                            <td className="border px-2 w-auto min-w-96"> {procedure.descripcion} </td>
                             <td className={cellStyle}> {procedure.areaResponsable} </td>
                             <td className={cellStyle}> {procedure.cargoResponsable} </td>
                             <td className={cellStyle}> {procedure.tipoInicio} </td>
@@ -156,7 +156,7 @@ const ResultsTable = ({ data }) => {
                             <td className={cellStyle}> {procedure.docsOrganos} </td>
                             <td className={cellStyle}> {procedure.mediosOrganos} </td>
                             <td className={cellStyle}> {procedure.medioInterop} </td>
-                            <td className={cellStyle}> {procedure.InstitucionProveedora} </td>
+                            <td className="border px-2 w-auto min-w-96"> {procedure.InstitucionProveedora} </td>
                             <td className={cellStyle}> {procedure.servicioWeb} </td>
                             <td className={cellStyle}> {procedure.docNotarial} </td>
                             <td className={cellStyle}> {procedure.nombreDocNotarial} </td>
