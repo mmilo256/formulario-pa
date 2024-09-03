@@ -3,6 +3,7 @@ import useFormStore from "../stores/useFormStore"
 import useProcedureStore from "../stores/useProcedureStore"
 import PrimaryButton from "./PrimaryButton"
 import SecondaryButton from "./SecondaryButton"
+import { API_URL } from "../constants/constants"
 
 const ConfirmForm = () => {
 
@@ -86,7 +87,7 @@ const ConfirmForm = () => {
             medioComOficial: data7.medioComOficial,
         }
         try {
-            await fetch("http://localhost:3000/api", {
+            await fetch(API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

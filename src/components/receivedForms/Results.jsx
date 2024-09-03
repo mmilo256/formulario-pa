@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import ResultsTable from "./ResultsTable"
+import { API_URL } from "../../constants/constants"
 
 const Results = () => {
 
@@ -8,7 +9,7 @@ const Results = () => {
     useEffect(() => {
         const getResults = async () => {
             try {
-                const res = await fetch("http://localhost:3000/api")
+                const res = await fetch(API_URL)
                 const data = await res.json()
                 setResultsData(data.data)
             } catch (error) {
