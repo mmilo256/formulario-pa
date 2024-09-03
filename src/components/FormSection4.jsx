@@ -43,7 +43,7 @@ const FormSection4 = () => {
     useEffect(() => {
 
         if (nivelDig !== "Nivel 0") {
-            if (fechaDig && tipoExp && accesoExp && urlInicio && numPlataformas && alcancePlataformas) {
+            if (tipoExp && accesoExp && urlInicio && numPlataformas && alcancePlataformas) {
                 setIsValid(true)
             } else {
                 setIsValid(false)

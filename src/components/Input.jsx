@@ -12,7 +12,7 @@ const Input = ({
     help,
     placeholder,
     numOnly,
-    maxLength = 100
+    maxLength = 90
 }) => {
 
     let input;

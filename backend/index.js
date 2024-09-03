@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 import e from 'express'
 import cors from 'cors'
 import formRouter from './routes/formRoutes.js'
+import 'dotenv/config'
 
 const app = e()
 
@@ -14,6 +16,6 @@ app.get("/", (req, res) => {
     res.send("Hola mundo")
 })
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000")
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Listening...")
 })
