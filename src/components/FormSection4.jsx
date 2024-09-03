@@ -149,9 +149,9 @@ const FormSection4 = () => {
                 </div>
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={tipoExpModal} setModal={setTipoExpModal} modalData={infoTipoExp} value={tipoExp} onChange={setTipoExp} type="select" options={opTipoExpediente} label="Tipo de expediente" />}
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={accesoExpModal} setModal={setAccesoExpModal} modalData={infoAccesoExp} value={accesoExp} onChange={setAccesoExp} type="select" options={opAccesoExp} label="Acceso al expediente electrónico por parte de los interesados" />}
-                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={urlInicioModal} setModal={setUrlInicioModal} modalData={infoUrlInicio} value={urlInicio} onChange={setUrlInicio} label="URL de inicio" />}
+                {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input maxLength={1000} help modal={urlInicioModal} setModal={setUrlInicioModal} modalData={infoUrlInicio} value={urlInicio} onChange={setUrlInicio} label="URL de inicio" />}
                 <Input value={chileAtiende} onChange={setChileAtiende} type="select" options={opFicha} label="Ficha en ChileAtiende" />
-                {chileAtiende === "Si" && <Input value={urlChileAtiende} onChange={setUrlChileAtiende} label="Enlace a ficha en ChileAtiende" />}
+                {chileAtiende === "Si" && <Input maxLength={1000} value={urlChileAtiende} onChange={setUrlChileAtiende} label="Enlace a ficha en ChileAtiende" />}
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={numPlataformasModal} setModal={setNumPlataformasModal} modalData={infoNumPlataformas} numOnly maxLength={5} value={numPlataformas} onChange={setNumPlataformas} label="Número de plataformas electrónicas" />}
                 {nivelDig !== "" && nivelDig !== "Nivel 0" && <Input help modal={alcancePlataformasModal} setModal={setAlcancePlataformasModal} modalData={infoAlcancePlataformas} value={alcancePlataformas} onChange={setAlcancePlataformas} type="select" options={opAlcance} label="Alcance de las plataformas electrónicas" />}
                 <div className="col-span-2">
