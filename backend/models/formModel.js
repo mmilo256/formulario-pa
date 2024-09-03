@@ -70,6 +70,7 @@ const FormData = sequelize.define('form_data', {
     docNotarial: DataTypes.STRING,
     nombreDocNotarial: DataTypes.STRING,
     medioComOficial: DataTypes.STRING,
+    marcado: DataTypes.BOOLEAN,
 }, { timestamps: false })
 
 export default FormData

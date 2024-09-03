@@ -1,13 +1,28 @@
-const ResultsTable = ({ data }) => {
+import { API_URL } from "../../constants/constants"
+
+const ResultsTable = ({ data, reloadTable, setReloadTable }) => {
 
     const headerStyle = "bg-slate-800 px-2 text-xs text-white font-normal min-w-40 border border-white"
     const cellStyle = "border px-2 w-64"
 
+    const checkItem = async (procedure) => {
+        await fetch(`${API_URL}/${procedure.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ marcado: !procedure.marcado })
+        })
+        setReloadTable(!reloadTable)
+    }
+
+
     return (
-        <div onClick={() => { console.log(data) }} className="shadow rounded overflow-x-scroll">
+        <div className="shadow rounded overflow-x-scroll">
             <table className="text-left text-xs">
                 <thead>
                     <tr>
+                        <th className="bg-lime-400"></th>
                         <th className="bg-blue-700 text-white text-center" colSpan={9}>1. Identificación</th>
                         <th className="bg-red-700 text-white text-center" colSpan={6}>2. Marco normativo</th>
                         <th className="bg-green-700 text-white text-center" colSpan={7}>3. Usuarios</th>
@@ -17,6 +32,7 @@ const ResultsTable = ({ data }) => {
                         <th className="bg-red-700 text-white text-center" colSpan={8}>7. Datos y documentos requeridos</th>
                     </tr>
                     <tr>
+                        <th className="w-auto bg-lime-400">Marcado</th>
                         <th className={headerStyle}>Nombre del procedimiento</th>
                         <th className={headerStyle}>Tipo de registro</th>
                         <th className={headerStyle}>Descripción</th>
@@ -81,41 +97,46 @@ const ResultsTable = ({ data }) => {
                 <tbody>
                     {data.map((procedure, index) => (
                         <tr key={index}>
-                            <td className={cellStyle}> {procedure.nombrePA} </td>
-                            <td className={cellStyle}> {procedure.tipoRegistro} </td>
-                            <td className="border px-2 w-auto min-w-96"> {procedure.descripcion} </td>
-                            <td className={cellStyle}> {procedure.areaResponsable} </td>
-                            <td className={cellStyle}> {procedure.cargoResponsable} </td>
-                            <td className={cellStyle}> {procedure.tipoInicio} </td>
-                            <td className={cellStyle}> {procedure.actoInicio} </td>
-                            <td className={cellStyle}> {procedure.actoTermino} </td>
-                            <td className={cellStyle}> {procedure.prodInstitucional} </td>
+                            <td className={`${cellStyle}`}>
+                                <button className="block relative h-8 w-8 bg-white border border-black" type="button" onClick={() => { checkItem(procedure) }} >
+                                    {procedure.marcado && <span className="absolute inset-0 text-2xl text-green-500 flex items-center justify-center">X</span>}
+                                </button>
+                            </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.nombrePA} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoRegistro} </td>
+                            <td className={`border px-2 w-auto min-w-96 ${procedure.marcado && "bg-green-300"}`}> {procedure.descripcion} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.areaResponsable} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.cargoResponsable} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoInicio} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.actoInicio} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.actoTermino} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.prodInstitucional} </td>
 
-                            <td className={cellStyle}> {procedure.numLey} </td>
-                            <td className={cellStyle}> {procedure.urlLey} </td>
-                            <td className={cellStyle}> {procedure.fuentesNorm} </td>
-                            <td className={cellStyle}> {procedure.tipoFuente} </td>
-                            <td className={cellStyle}> {procedure.nombreFuente} </td>
-                            <td className={cellStyle}> {procedure.urlFuente} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.numLey} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.urlLey} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.fuentesNorm} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoFuente} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.nombreFuente} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.urlFuente} </td>
 
-                            <td className={cellStyle}> {procedure.pago} </td>
-                            <td className={cellStyle}> {procedure.tipoMoneda} </td>
-                            <td className={cellStyle}> {procedure.monto} </td>
-                            <td className={cellStyle}> {procedure.tipoUsuario} </td>
-                            <td className={cellStyle}> {procedure.segmentoUsuarios} </td>
-                            <td className={cellStyle}> {procedure.rsh} </td>
-                            <td className={cellStyle}> {procedure.disponibilidad} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.pago} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoMoneda} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.monto} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoUsuario} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.segmentoUsuarios} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.rsh} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.disponibilidad} </td>
 
-                            <td className={cellStyle}> {procedure.nivelDig} </td>
-                            <td className={cellStyle}> {procedure.fechaDig} </td>
-                            <td className={cellStyle}>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.nivelDig} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.fechaDig} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}>
                                 <p>{procedure.canalAtencionDigital && "Digital"}</p>
                                 <p>{procedure.canalAtencionPresencial && "Presencial"}</p>
                                 <p>{procedure.canalAtencionTelefonico && "Telefónico"}</p>
                                 <p>{procedure.canalAtencionAuto && "Autoatención"}</p>
                             </td>
 
-                            <td className={cellStyle}>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}>
 
                                 <p>{procedure.canalTransDigital && "Digital"}</p>
                                 <p>{procedure.canalTransPresencial && "Presencial"}</p>
@@ -123,44 +144,44 @@ const ResultsTable = ({ data }) => {
                                 <p>{procedure.canalTransAuto && "Autoatención"}</p>
 
                             </td>
-                            <td className={cellStyle}> {procedure.tipoExp} </td>
-                            <td className={cellStyle}> {procedure.accesoExp} </td>
-                            <td className={cellStyle}> {procedure.urlInicio} </td>
-                            <td className={cellStyle}> {procedure.chileAtiende} </td>
-                            <td className={cellStyle}> {procedure.urlChileAtiende} </td>
-                            <td className={cellStyle}> {procedure.numPlataformas} </td>
-                            <td className={cellStyle}> {procedure.alcancePlataformas} </td>
-                            <td className={cellStyle}>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.tipoExp} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.accesoExp} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.urlInicio} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.chileAtiende} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.urlChileAtiende} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.numPlataformas} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.alcancePlataformas} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}>
                                 <p>{procedure.platSimpleSaas && "SIMPLE SaaS"}</p>
                                 <p>{procedure.platSimpleOnPremise && "SIMPLE On Premise"}</p>
                                 <p>{procedure.platPropio && "Desarrollo propio"}</p>
                                 <p>{procedure.platEstado && "Plataformas transversales del Estado"}</p>
                             </td>
 
-                            <td className={cellStyle}> {procedure.autenticacionUsuario} </td>
-                            <td className={cellStyle}> {procedure.autenticacionFuncionario} </td>
-                            <td className={cellStyle}> {procedure.firmaElec} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.autenticacionUsuario} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.autenticacionFuncionario} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.firmaElec} </td>
 
-                            <td className={cellStyle}> {procedure.notificaciones} </td>
-                            <td className={cellStyle}>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.notificaciones} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}>
                                 <p>{procedure.etapaNotifInicio && "Inicio"}</p>
                                 <p>{procedure.etapaNotifInstruc && "Instrucción"}</p>
                                 <p>{procedure.etapaNotifTermino && "Término"}</p>
                             </td>
-                            <td className={cellStyle}> {procedure.notifInicio} </td>
-                            <td className={cellStyle}> {procedure.notifInstruc} </td>
-                            <td className={cellStyle}> {procedure.notifTermino} </td>
-                            <td className={cellStyle}> {procedure.comInstitucionales} </td>
-                            <td className={cellStyle}> {procedure.comPersonales} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.notifInicio} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.notifInstruc} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.notifTermino} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.comInstitucionales} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.comPersonales} </td>
 
-                            <td className={cellStyle}> {procedure.docsOrganos} </td>
-                            <td className={cellStyle}> {procedure.mediosOrganos} </td>
-                            <td className={cellStyle}> {procedure.medioInterop} </td>
-                            <td className="border px-2 w-auto min-w-96"> {procedure.InstitucionProveedora} </td>
-                            <td className={cellStyle}> {procedure.servicioWeb} </td>
-                            <td className={cellStyle}> {procedure.docNotarial} </td>
-                            <td className={cellStyle}> {procedure.nombreDocNotarial} </td>
-                            <td className={cellStyle}> {procedure.medioComOficial} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.docsOrganos} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.mediosOrganos} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.medioInterop} </td>
+                            <td className={`border px-2 w-auto min-w-96 ${procedure.marcado && "bg-green-300"}`}> {procedure.InstitucionProveedora} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.servicioWeb} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.docNotarial} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.nombreDocNotarial} </td>
+                            <td className={`${cellStyle} ${procedure.marcado && "bg-green-300"}`}> {procedure.medioComOficial} </td>
 
                         </tr>
                     ))}

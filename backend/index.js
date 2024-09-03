@@ -12,10 +12,6 @@ app.use(e.json())
 
 app.use("/api", formRouter)
 
-app.get("/", (req, res) => {
-    res.send("Hola mundo")
-})
-
 app.listen(process.env.PORT || 3000, () => {
     console.log("Listening...")
 })

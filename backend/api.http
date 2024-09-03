@@ -1,7 +1,6 @@
-POST http://localhost:3000/api
+get http://localhost:3000/api/3
 Content-Type: application/json
 
 {
-    "nombrePA": "El tercer hokage",
-    "inventado": "Dato inventado"
+    "marcado": true
 }
