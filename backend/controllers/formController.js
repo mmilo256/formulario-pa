@@ -1,4 +1,4 @@
-import FormData from "../Models/formModel.js"
+import FormData from "../models/formModel.js"
 
 export const getAllFormData = async (req, res) => {
     const data = await FormData.findAll()
