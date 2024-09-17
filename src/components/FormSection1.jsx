@@ -80,7 +80,7 @@ const FormSection1 = () => {
 
             </BaseFormSection>
             <div className='flex justify-end py-4'>
-                <PrimaryButton disabled={!isValid} onClick={handleSubmit}>Siguiente</PrimaryButton>
+                <PrimaryButton /* disabled={!isValid} */ onClick={handleSubmit}>Siguiente</PrimaryButton>
             </div>
         </>
     )

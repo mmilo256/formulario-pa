@@ -107,7 +107,7 @@ const FormSection7 = () => {
             </BaseFormSection>
             <div className='flex justify-end py-4 gap-4'>
                 <SecondaryButton type='link' href="/notificaciones">Anterior</SecondaryButton>
-                <PrimaryButton disabled={!isValid} onClick={handleSubmit} >Finalizar</PrimaryButton>
+                <PrimaryButton /* disabled={!isValid} */ onClick={handleSubmit} >Finalizar</PrimaryButton>
             </div>
         </>
     )
